@@ -1,0 +1,11 @@
+{
+  "presets": [
+    "env",
+    "react"
+  ],
+  "plugins": [
+    "inline-react-svg",
+    "transform-class-properties",
+    "transform-object-rest-spread"
+  ]
+}

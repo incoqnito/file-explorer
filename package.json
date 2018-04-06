@@ -1,0 +1,48 @@
+{
+  "name": "@incoqnito.io/file-explorer",
+  "version": "0.0.1",
+  "description": "A set of React components allowing you to build a flexible file explorer",
+  "main": "src/index.js",
+  "scripts": {
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/incoqnito/file-explorer.git"
+  },
+  "keywords": [
+    "react",
+    "file",
+    "explorer",
+    "tree",
+    "treeview",
+    "filesystem",
+    "file-explorer",
+    "incoqnito",
+    "incoqnito.io",
+    "set",
+    "component",
+    "components"
+  ],
+  "author": "DragonRaider5",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/incoqnito/file-explorer/issues"
+  },
+  "homepage": "https://github.com/incoqnito/file-explorer#readme",
+  "devDependencies": {
+    "@storybook/react": "^3.4.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-inline-react-svg": "^0.5.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
+  },
+  "dependencies": {
+    "styled-components": "^3.2.5"
+  }
+}
