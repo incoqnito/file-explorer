@@ -4,16 +4,16 @@ import styled from 'styled-components'
 import FolderIcon from '../icons/Folder.svg'
 import OpenFolderIcon from '../icons/OpenFolder.svg'
 
-const Folder = ({ folder: { title, id, children }, shouldDisplay, onExpand, path = [] }) => shouldDisplay(path) && (
   <Wrapper className='file-explorer-tree-view-folder' onClick={(event) => {
+const Folder = ({ folder: { name, id, children }, shouldDisplay, onExpand, path = [] }) => shouldDisplay(path) && (
     event.stopPropagation()
     onExpand(path.concat(id))
   }}>
     <Icon src={shouldDisplay(path.concat(id)) ? OpenFolderIcon : FolderIcon} fill='#333' />
 
-    <Title>
-    { title }
-    </Title>
+    <Name className='file-explorer-tree-view-folder-name'>
+    { name }
+    </Name>
 
     { children && children.map((folder) => (
       <Folder
@@ -45,7 +45,7 @@ const Icon = ({ src: Icon, ...props }) => (
   <Icon width='16' height='16' {...props} />
 )
 
-const Title = styled.span`
+const Name = styled.span`
   position: relative;
   color: #333;
   padding-left: 4px;

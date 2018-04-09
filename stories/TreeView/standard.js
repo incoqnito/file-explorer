@@ -6,25 +6,25 @@ export default () => (
   <TreeView
     data={[ {
       id: 1,
-      title: 'First Folder',
+      name: 'First Folder',
       children: [ {
         id: 1,
-        title: 'Child Folder',
+        name: 'Child Folder',
         children: [ {
           id: 1,
-          title: 'Another Child Folder'
+          name: 'Another Child Folder'
         } ]
       }, {
         id: 2,
-        title: 'Second Child Folder',
+        name: 'Second Child Folder',
         children: [ {
           id: 1,
-          title: 'Another Child Folder'
+          name: 'Another Child Folder'
         } ]
       } ]
     }, {
       id: 2,
-      title: 'Second Folder'
+      name: 'Second Folder'
     } ]}
   />
 )
