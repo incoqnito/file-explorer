@@ -3,15 +3,16 @@ import styled from 'styled-components'
 
 import Entity from './components/Entity/index.js'
 
-import FolderIcon from './icons/Folder.svg'
-import FileIcon from './icons/File.svg'
+import MaterialFolderIcon from './icons/Folder.svg'
+import MaterialFileIcon from './icons/File.svg'
 
-export default ({ folders, files, className, onClickFolder, onDoubleClickFolder, onClickFile, onDoubleClickFile, doubleClickThreshold = 200, ...props }) => (
+export default ({ folders, files, className, FolderIcon = MaterialFolderIcon, FileIcon = MaterialFileIcon, onClickFolder,
+  onDoubleClickFolder, onClickFile, onDoubleClickFile, doubleClickThreshold = 200, ...props }) => (
   <Wrapper className={`${className ? className : ''} file-explorer-folder-view-wrapper`} {...props}>
     { folders.map((folder) => (
         <Entity
           text={folder.name}
-          icon={FolderIcon}
+          icon={(props) => <FolderIcon {...props} folder={folder} />}
           key={folder.id}
           doubleClickThreshold={doubleClickThreshold}
           onClick={onClickFolder && (() => onClickFolder(folder))}
@@ -22,7 +23,7 @@ export default ({ folders, files, className, onClickFolder, onDoubleClickFolder,
     { files.map((file) => (
         <Entity
           text={file.name}
-          icon={FileIcon}
+          icon={(props) => <FileIcon {...props} file={file} />}
           key={file.id}
           doubleClickThreshold={doubleClickThreshold}
           onClick={onClickFile && (() => onClickFile(file))}
