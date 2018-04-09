@@ -67,7 +67,6 @@ const Wrapper = styled.div`
   * {
     font-family: sans-serif;
   }
-
-  border: 1px solid #CCC;
+  
   padding-bottom: 8px;
 `
