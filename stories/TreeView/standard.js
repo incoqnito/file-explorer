@@ -14,6 +14,13 @@ export default () => (
           id: 1,
           title: 'Another Child Folder'
         } ]
+      }, {
+        id: 2,
+        title: 'Second Child Folder',
+        children: [ {
+          id: 1,
+          title: 'Another Child Folder'
+        } ]
       } ]
     }, {
       id: 2,
