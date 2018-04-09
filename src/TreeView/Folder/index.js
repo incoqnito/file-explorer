@@ -4,12 +4,16 @@ import styled from 'styled-components'
 import FolderIcon from '../icons/Folder.svg'
 import OpenFolderIcon from '../icons/OpenFolder.svg'
 
-  <Wrapper className='file-explorer-tree-view-folder' onClick={(event) => {
 const Folder = ({ folder: { name, id, children }, shouldDisplay, onExpand, path = [] }) => shouldDisplay(path) && (
+  <Wrapper className='file-explorer-tree-view-folder-wrapper' onClick={(event) => {
     event.stopPropagation()
     onExpand(path.concat(id))
   }}>
-    <Icon src={shouldDisplay(path.concat(id)) ? OpenFolderIcon : FolderIcon} fill='#333' />
+    <Icon
+      src={shouldDisplay(path.concat(id)) ? OpenFolderIcon : FolderIcon}
+      fill='#333'
+      className='file-explorer-tree-view-folder-icon'
+    />
 
     <Name className='file-explorer-tree-view-folder-name'>
     { name }

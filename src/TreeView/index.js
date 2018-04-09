@@ -40,7 +40,7 @@ export default class TreeView extends React.PureComponent {
     const { data } = this.props
 
     return (
-      <Wrapper>
+      <Wrapper className='ile-explorer-tree-view-wrapper'>
         {
           data.map((folder) => (
             <Folder
