@@ -43,7 +43,7 @@ const Wrapper = styled.div`
     box-sizing: border-box;
   }
 
-  @media only screen and (max-width: 1080px) and (min-width: 811px) {
+  @media only screen and (min-width: 811px) {
     & > * {
       flex-basis: 25%;
     }
