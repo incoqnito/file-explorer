@@ -3,15 +3,39 @@ import styled from 'styled-components'
 
 import Icon from '../Icon/index.js'
 
-export default ({ icon, text, ...props }) => (
-  <Wrapper {...props}>
-    <Icon src={icon} />
+export default class extends React.PureComponent {
+  onClick = (event) => {
+    event.persist()
 
-    <Text>
-      { text }
-    </Text>
-  </Wrapper>
-)
+    if (this.timeout) {
+      window.clearTimeout(this.timeout)
+      this.timeout = false
+
+      this.props.onDoubleClick(event)
+    } else {
+      this.timeout = window.setTimeout(() => this.onClickTimeoutCallback(event), this.props.doubleClickThreshold)
+    }
+  }
+
+  onClickTimeoutCallback = (event) => {
+    this.timeout = false
+    this.props.onClick && this.props.onClick(event)
+  }
+
+  render () {
+    const { icon, text, style, className } = this.props
+
+    return (
+      <Wrapper onClick={this.props.onClick && !this.props.onDoubleClick ? this.props.onClick : this.onClick} style={style} className={className}>
+        <Icon src={icon} />
+
+        <Text>
+          { text }
+        </Text>
+      </Wrapper>
+    )
+  }
+}
 
 const Wrapper = styled.div`
   flex: 0 0;
@@ -27,4 +51,5 @@ const Wrapper = styled.div`
 const Text = styled.span`
   padding-left: 8px;
   white-space: nowrap;
+  user-select: none;
 `

@@ -27,6 +27,7 @@ export default () => (
       id: 3,
       name: 'A File'
     } ]}
+    doubleClickThreshold={1000}
     onClickFolder={action('onClickFolder()')}
     onDoubleClickFolder={action('onDoubleClickFolder()')}
     onClickFile={action('onClickFile()')}

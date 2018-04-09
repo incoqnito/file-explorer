@@ -6,10 +6,30 @@ import Entity from './components/Entity/index.js'
 import FolderIcon from './icons/Folder.svg'
 import FileIcon from './icons/File.svg'
 
-export default ({ folders, files, className, onClickFolder, onClickFile, ...props }) => (
+export default ({ folders, files, className, onClickFolder, onDoubleClickFolder, onClickFile, onDoubleClickFile, doubleClickThreshold = 200, ...props }) => (
   <Wrapper className={`${className ? className : ''} file-explorer-folder-view-wrapper`} {...props}>
-    { folders.map((folder) => <Entity text={folder.name} icon={FolderIcon} key={folder.id} onClick={() => onClickFolder(folder)} />) }
-    { files.map((file) => <Entity text={file.name} icon={FileIcon} key={file.id} onClick={() => onClickFile(file)} />) }
+    { folders.map((folder) => (
+        <Entity
+          text={folder.name}
+          icon={FolderIcon}
+          key={folder.id}
+          doubleClickThreshold={doubleClickThreshold}
+          onClick={onClickFolder && (() => onClickFolder(folder))}
+          onDoubleClick={onDoubleClickFolder && (() => onDoubleClickFolder(folder))}
+        />
+      )
+    )}
+    { files.map((file) => (
+        <Entity
+          text={file.name}
+          icon={FileIcon}
+          key={file.id}
+          doubleClickThreshold={doubleClickThreshold}
+          onClick={onClickFile && (() => onClickFile(file))}
+          onDoubleClick={onDoubleClickFile && (() => onDoubleClickFile(file))}
+        />
+      )
+    ) }
   </Wrapper>
 )
 
