@@ -26,10 +26,14 @@ export default class extends React.PureComponent {
     const { icon, text, style, className } = this.props
 
     return (
-      <Wrapper onClick={this.props.onClick && !this.props.onDoubleClick ? this.props.onClick : this.onClick} style={style} className={className}>
-        <Icon src={icon} />
+      <Wrapper
+        onClick={this.props.onClick && !this.props.onDoubleClick ? this.props.onClick : this.onClick}
+        style={style}
+        className='file-explorer-folder-view-entity-wrapper'
+      >
+        <Icon src={icon} className='file-explorer-folder-view-entity-icon'/>
 
-        <Text>
+        <Text className='file-explorer-folder-view-entity-text'>
           { text }
         </Text>
       </Wrapper>
