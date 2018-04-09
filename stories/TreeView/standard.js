@@ -1,4 +1,5 @@
 import React from 'react'
+import { action } from '@storybook/addon-actions'
 
 import { TreeView } from '../../src/index.js'
 
@@ -26,5 +27,7 @@ export default () => (
       id: 2,
       name: 'Second Folder'
     } ]}
+    onExpandFolder={action('onExpandFolder() [path of folder IDs]')}
+    onCloseFolder={action('onCloseFolder() [path of folder IDs]')}
   />
 )

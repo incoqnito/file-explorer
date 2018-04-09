@@ -21,15 +21,22 @@ export default class TreeView extends React.PureComponent {
       ...this.state.currentPath
     }
 
-    path.reduce((result, id, index) => {
+    const result = path.reduce((result, id, index) => {
       if (!result[id]) {
         result[id] = {}
       } else if (index === path.length - 1) {
         result[id] = false
+        return 'shrink'
       }
 
       return result[id]
     }, currentPath)
+
+    if (result === 'shrink') {
+      this.props.onCloseFolder && this.props.onCloseFolder(path)
+    } else {
+      this.props.onExpandFolder && this.props.onExpandFolder(path)
+    }
 
     this.setState({
       currentPath
